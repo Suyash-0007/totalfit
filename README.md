@@ -69,11 +69,5 @@ TotalFit is a full-stack fitness and health management platform that integrates 
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-## Contributors
-- Member 1: Frontend Specialist
-- Member 2: Backend Specialist
-- Member 3: ML/AI Specialist
-- Member 4: DevOps/Integration Specialist
-
 ## Contact
 For questions or support, open an issue or contact the team via GitHub.
