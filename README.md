@@ -40,7 +40,7 @@ TotalFit is a full-stack fitness and health management platform that integrates 
 ## Setup Instructions
 1. Clone the repository:
 	```sh
-	git clone https://github.com/your-username/totalfit.git
+	git clone https://github.com/suyash-0007/totalfit.git
 	```
 2. Install dependencies:
 	```sh
