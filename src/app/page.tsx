@@ -1,103 +1,124 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Activity, Stethoscope, Briefcase, Wallet, Sparkles, Shield, BarChart3 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="space-y-24">
+      {/* Hero */}
+      <section className="relative overflow-hidden rounded-xl border bg-background px-6 py-20 shadow-xl">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-gray-50" />
+        <div className="absolute -left-24 -top-24 h-72 w-72 animate-pulse rounded-full bg-blue-100/50 blur-3xl" />
+        <div className="absolute -bottom-32 -right-24 h-96 w-96 animate-pulse rounded-full bg-gray-100/50 blur-3xl" />
+        <div className="relative mx-auto max-w-4xl text-center">
+          <motion.h1 initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
+            Elevate Athlete Performance with TotalFit
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }} className="mt-4 text-pretty text-lg/7 text-muted-foreground">
+            Track performance, prevent injuries, plan careers, and manage finances — all in one platform.
+          </motion.p>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.1 }} className="mt-8 flex items-center justify-center gap-3">
+            <Button asChild size="lg">
+              <Link href="/get-started">Get Started</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/login">Login</Link>
+            </Button>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Purpose */}
+      <section className="mx-auto max-w-6xl">
+        <div className="mb-8 text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-blue-600 ring-1 ring-blue-200">
+            <Sparkles className="h-4 w-4" />
+            Purpose
+          </span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground">Built for athlete success</h2>
+          <p className="mt-2 text-muted-foreground">Four pillars that power smarter decisions.</p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { title: "Performance", desc: "Training load, trends, and insights.", icon: Activity, color: "blue" },
+            { title: "Injuries", desc: "Risk flags and recovery tracking.", icon: Stethoscope, color: "red" },
+            { title: "Career", desc: "Milestones, goals, and progression.", icon: Briefcase, color: "green" },
+            { title: "Finance", desc: "Earnings, budgets, and forecasts.", icon: Wallet, color: "amber" },
+          ].map(({ title, desc, icon: Icon, color }, i) => (
+            <motion.div key={title} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.03 }}>
+            <Card className="transition hover:shadow-lg hover:-translate-y-0.5 border">
+              <CardHeader>
+                <div className="flex items-center gap-2">
+                  <span className={`flex h-9 w-9 items-center justify-center rounded-md bg-${color}-100 text-${color}-600`}>
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <CardTitle className="text-foreground">{title}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">{desc}</p>
+              </CardContent>
+            </Card>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Key Features */}
+      <section className="mx-auto max-w-6xl">
+        <div className="mb-8 text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-gray-600 ring-1 ring-gray-200">
+            <Shield className="h-4 w-4" />
+            Key Features
+          </span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground">Everything you need to win</h2>
+          <p className="mt-2 text-muted-foreground">Powerful tools designed for teams and individuals.</p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              title: "Advanced Analytics",
+              desc: "Visualize metrics and trends with beautiful charts.",
+              icon: BarChart3,
+              color: "blue"
+            },
+            { 
+              title: "Training Planner", 
+              desc: "Plan blocks and monitor load progression.", 
+              icon: Activity,
+              color: "green"
+            },
+            { 
+              title: "Medical Hub", 
+              desc: "Centralize screenings, notes, and return-to-play.", 
+              icon: Stethoscope,
+              color: "red"
+            },
+          ].map(({ title, desc, icon: Icon, color }, i) => (
+            <motion.div key={title} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.03 }}>
+            <Card className="border">
+              <CardHeader>
+                <div className="flex items-center gap-2">
+                  <span className={`flex h-9 w-9 items-center justify-center rounded-md bg-${color}-100 text-${color}-600`}>
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <CardTitle className="text-foreground">{title}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">{desc}</p>
+              </CardContent>
+            </Card>
+            </motion.div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

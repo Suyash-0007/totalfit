@@ -1,0 +1,57 @@
+generator client {
+	provider = "prisma-client-js"
+}
+
+datasource db {
+	provider = "postgresql"
+	url      = env("DATABASE_URL")
+}
+
+model AthleteProfile {
+	id        String  @id @default(cuid())
+	name      String
+	age       Int
+	sport     String
+	createdAt DateTime @default(now())
+	updatedAt DateTime @updatedAt
+	injuries  Injury[]
+	career    CareerMilestone[]
+	finance   Transaction[]
+}
+
+model Injury {
+	id         String   @id @default(cuid())
+	athleteId  String
+	athlete    AthleteProfile @relation(fields: [athleteId], references: [id])
+	title      String
+	note       String?
+	date       DateTime
+}
+
+model CareerMilestone {
+	id         String   @id @default(cuid())
+	athleteId  String
+	athlete    AthleteProfile @relation(fields: [athleteId], references: [id])
+	label      String
+	detail     String?
+	date       DateTime
+}
+
+model Transaction {
+	id         String   @id @default(cuid())
+	athleteId  String
+	athlete    AthleteProfile @relation(fields: [athleteId], references: [id])
+	type       String // Income or Expense
+	amount     Decimal @db.Decimal(10,2)
+	category   String
+	note       String?
+	createdAt  DateTime @default(now())
+}
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// single generator and datasource are defined at top of file
